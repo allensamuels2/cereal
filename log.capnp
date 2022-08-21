@@ -579,7 +579,11 @@ struct ControlsState @0x97ff69c53601abf1 {
     lqrState @55 :LateralLQRState;
     angleState @58 :LateralAngleState;
     debugState @59 :LateralDebugState;
+    torqueState @60 : Float32;          # remnav
   }
+
+  desiredCurvature @61 : Float32;       # remnav
+  desiredCurvatureRate @62 : Float32;   # remnav
 
   enum OpenpilotState @0xdbe58b96d2d1ac61 {
     disabled @0;
@@ -891,6 +895,8 @@ struct LateralPlan @0xe1e9318e2ae8b51e {
   curvatureRates @28 :List(Float32);
 
   solverExecutionTime @30 :Float32;
+
+  modelMonoTime @31 : UInt64;
 
   enum Desire {
     none @0;
